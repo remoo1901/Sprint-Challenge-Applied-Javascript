@@ -10,6 +10,7 @@
 // And add it to the DOM in the .header-container component
 
 const newHeader = document.querySelector('.header-container')
+newHeader.appendChild(Header());
 
 
 function Header(newHeader) {
@@ -31,6 +32,7 @@ function Header(newHeader) {
     headerDiv.appendChild(headerSpan1);
     headerDiv.appendChild(headerH1);
     headerDiv.appendChild(headerSpan2);
+    
 
 
     console.log(headerDiv);
