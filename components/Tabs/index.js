@@ -11,37 +11,25 @@
 axios
   .get('https://lambda-times-backend.herokuapp.com/topics')
   .then((response) => {
-      //console.log(response.data)
-      const tabsData = response.data;
+      console.log(response.data)
+      const tabsData = response.data.topics;
       tabsData.forEach((element) => {
         const arrData = newTab(element);
         tabs.appendChild(arrData);
-
-      });
-
+     });
   })
 
-  const tabs = document.querySelector('.topics')   
+  const tabs = document.querySelector('.topics')  
+  
+
+  function newTab (tabsCreator){
+ const tabDiv = document.createElement('div');
+
+ tabDiv.textContent = tabsCreator;
+
+ tabDiv.classList.add('tab');
 
 
-  function newTab (tabs){
-
-    const tabDiv1 = document.createElement('div');
-    const tabDiv2 = document.createElement('div');
-    const tabSpan = document.createElement('span');
- 
-    tabDiv1.classList.add('tabs');
-    tabDiv2.classList.add('topics');
-    tabSpan.classList.add('title');
- 
-    tabSpan.textContent = "TRENDNG TOPICS";
- 
-    tabDiv1.appendChild(tabDiv2);
-    tabDiv2.appendChild(tabSpan);
- 
-    console.log(tabDiv1);
-    return tabDiv1;
- 
- 
- 
- }
+ return tabDiv;
+    
+}
