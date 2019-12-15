@@ -11,12 +11,11 @@
 axios
   .get('https://lambda-times-backend.herokuapp.com/topics')
   .then((response) => {
-      console.log(response.data)
-      const tabsData = response.data.topics;
-      tabsData.forEach((element) => {
-        const arrData = newTab(element);
-        tabs.appendChild(arrData);
-     });
+      //console.log(response.data)
+      response.data.topics.forEach((x) =>{
+          tabs.appendChild(newTab(x))
+      });
+     
   })
 
   const tabs = document.querySelector('.topics')  
@@ -33,3 +32,18 @@ axios
  return tabDiv;
     
 }
+
+
+
+/*
+axios
+  .get('https://lambda-times-backend.herokuapp.com/topics')
+  .then((response) => {
+      //console.log(response.data)
+      const tabsData = response.data.topics;
+      tabsData.forEach((element) => {
+        const arrData = newTab(element);
+        tabs.appendChild(arrData);
+      });
+     
+  }) */
