@@ -7,3 +7,45 @@
 //
 //  The tab component should look like this:
 //    <div class="tab">topic here</div>
+
+axios
+  .get('https://lambda-times-backend.herokuapp.com/topics')
+  .then((response) => {
+      //console.log(response.data)
+
+    
+      response.data.topics.forEach((x) =>{
+          tabs.appendChild(newTab(x))
+      });
+     
+  })
+
+  const tabs = document.querySelector('.topics')  
+  
+
+ function newTab (tabsCreator){
+ const tabDiv = document.createElement('div');
+
+ tabDiv.textContent = tabsCreator;
+
+ tabDiv.classList.add('tab');
+
+
+ return tabDiv;
+    
+}
+
+
+
+/*
+axios
+  .get('https://lambda-times-backend.herokuapp.com/topics')
+  .then((response) => {
+      //console.log(response.data)
+      const tabsData = response.data.topics;
+      tabsData.forEach((element) => {
+        const arrData = newTab(element);
+        tabs.appendChild(arrData);
+      });
+     
+  }) */
